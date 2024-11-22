@@ -172,18 +172,108 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  nav {
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.95);
+  }
+
   nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    display: none; /* Hide by default on mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    padding: 2rem;
+    padding-top: 4rem;
+    z-index: 100;
   }
-  
+
+  nav.menu-open ul {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1001;
+    background: var(--accent);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
   .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .installation-steps li {
+    padding-left: 2.5rem;
+  }
+
+  .installation-steps li::before {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  pre code {
+    font-size: 0.8rem;
+    overflow-x: auto;
+    display: block;
+    padding: 1rem;
+    white-space: pre-wrap;
+  }
+
+  .language-selector {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .language-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Add touch-friendly styles */
+@media (hover: none) {
+  .feature-card:hover {
+    transform: none;
   }
   
-  section {
-    padding: 1.5rem;
+  nav a {
+    padding: 0.8rem 0;
+    display: block;
   }
 }
 
@@ -226,6 +316,14 @@ h2 {
 <div class="language-selector">
   <button class="language-btn" onclick="toggleLanguage()">EN/ES</button>
 </div>
+
+<button class="mobile-menu-btn">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</button>
 
 <nav>
   <ul>
@@ -330,51 +428,15 @@ h2 {
   <section id="configuration">
     <h2>Configuration / Configuración</h2>
     <pre><code>menu:
-      # Configuración del menú de amigos
-      menu:
-        add_friend:
-          material: "DIAMOND"  # Material del ítem para "Agregar Amigo"
-          name: "Add Friend"     # Nombre del ítem
-          lore: "Click to add a friend"  # Lore del ítem
-        remove_friend:
-          material: "REDSTONE"   # Material del ítem para "Eliminar Amigo"
-          name: "Remove Friend"
-          lore: "Click to remove a friend"
-        block_friend:
-          material: "BARRIER"     # Material del ítem para "Bloquear Amigo"
-          name: "Block Friend"
-          lore: "Click to block a friend"
-        unblock_friend:
-          material: "GREEN_WOOL"  # Material del ítem para "Desbloquear Amigo"
-          name: "Unblock Friend"
-          lore: "Click to unblock a friend"
-        send_gift:
-          material: "PAPER"        # Material del ítem para "Enviar Regalo"
-          name: "Send Gift"
-          lore: "Click to send a gift"
-        friends_list:
-          material: "BOOK"        # Material del ítem para "Lista de Amigos"
-          name: "Friends List"
-          lore: "Click to view your friends"
-      
-      # Mensajes utilizados en el plugin
-      messages:
-        has_connected: "%player% has connected."
-        has_disconnected: "%player% has disconnected."
-        player_not_online: "The player is not online."
-        friend_not_found: "Friend %friend% not found."
-        friend_already_added: "You are already friends with %friend%."
-        friend_request_sent: "Friend request sent to %friend%."
-        friend_request_received: "You have received a friend request from %player%."
-        friend_request_accepted: "You have accepted the friend request from %friend%."
-        friend_request_not_found: "No friend request found from %friend%."
-        friend_request_rejected: "You have rejected the friend request from %friend%."
-        friend_removed: "You have removed %friend% from your friends."
-        friend_blocked: "You have blocked %friend%."
-        friend_unblocked: "You have unblocked %friend%."
-        friend_already_blocked: "You have already blocked %friend%."
-        gift_sent: "Gift sent to %friend%."
-        gift_received: "You have received a gift from %player%."</code></pre>
+  add_friend:
+    material: "DIAMOND"
+    name: "Add Friend / Añadir Amigo"
+  remove_friend:
+    material: "REDSTONE"
+    name: "Remove Friend / Eliminar Amigo"
+messages:
+  friend_request_sent: "Friend request sent to %friend% / Solicitud de amistad enviada a %friend%"
+  friend_request_received: "New friend request from %player% / Nueva solicitud de amistad de %player%"</code></pre>
   </section>
 
   <section id="support">
@@ -397,6 +459,39 @@ function toggleLanguage() {
   });
   currentLang = newLang;
 }
+
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const nav = document.querySelector('nav');
+
+mobileMenuBtn.addEventListener('click', () => {
+  nav.classList.toggle('menu-open');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (nav.classList.contains('menu-open') && 
+      !nav.contains(e.target) && 
+      !mobileMenuBtn.contains(e.target)) {
+    nav.classList.remove('menu-open');
+  }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('menu-open');
+  });
+});
+
+// Prevent zoom on double tap in iOS
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (e) => {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    e.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
 
 document.querySelectorAll('nav a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
