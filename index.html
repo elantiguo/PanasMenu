@@ -1,0 +1,441 @@
+<html><head><base href="https://"><title>PanasMenu - Minecraft Plugin Wiki</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet"><style>
+:root {
+  --primary: #1a1f2c;
+  --secondary: #2d3748;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --text: #e2e8f0;
+  --bg: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.language-selector {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.language-btn {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
+.language-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+nav {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  padding: 2rem;
+  transition: background 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+nav ul {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--gradient);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  padding: 0;
+}
+
+.hero h1 {
+  font-size: 8rem;
+  margin: 0;
+  text-transform: none;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+section {
+  margin: 8rem auto;
+  max-width: 1200px;
+  background: transparent;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.feature-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+}
+
+h2 {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+}
+
+.installation-steps {
+  counter-reset: step;
+  list-style: none;
+}
+
+.installation-steps li {
+  margin-bottom: 1.5rem;
+  padding-left: 3rem;
+  position: relative;
+}
+
+.installation-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+[lang] {
+  display: none;
+}
+
+[lang].active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 4rem;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+}
+
+/* Animaciones suaves */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+</style>
+</head>
+<body>
+
+<div class="language-selector">
+  <button class="language-btn" onclick="toggleLanguage()">EN/ES</button>
+</div>
+
+<nav>
+  <ul>
+    <li><a href="#overview">Overview / Descripción</a></li>
+    <li><a href="#features">Features / Características</a></li>
+    <li><a href="#commands">Commands / Comandos</a></li>
+    <li><a href="#installation">Installation / Instalación</a></li>
+    <li><a href="#configuration">Configuration / Configuración</a></li>
+    <li><a href="#support">Support / Soporte</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>PanasMenu</h1>
+  <div lang="en" class="active">
+    <p class="hero-text">Transform your Minecraft server's social experience</p>
+  </div>
+  <div lang="es">
+    <p class="hero-text">Transforma la experiencia social de tu servidor Minecraft</p>
+  </div>
+</div>
+
+<div class="container">
+  
+  <section id="overview">
+    <h2>Overview / Descripción</h2>
+    <div lang="en" class="active">
+      <p>PanasMenu is an innovative plugin designed for Minecraft servers that enables players to manage their friendships effortlessly through an intuitive interface. With features like friend requests, gift-giving, and real-time notifications, PanasMenu enhances the social experience of your Minecraft server.</p>
+    </div>
+    <div lang="es">
+      <p>PanasMenu es un plugin innovador diseñado para servidores de Minecraft que permite a los jugadores gestionar sus amistades de manera sencilla a través de una interfaz intuitiva. Con características como solicitudes de amistad, envío de regalos y notificaciones en tiempo real, PanasMenu mejora la experiencia social de tu servidor de Minecraft.</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>Key Features / Características Principales</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div lang="en" class="active">
+          <h3>Interactive Friends Menu</h3>
+          <p>User-friendly visual interface for managing friends without complex commands</p>
+        </div>
+        <div lang="es">
+          <h3>Menú de Amigos Interactivo</h3>
+          <p>Interfaz visual amigable para gestionar amigos sin comandos complejos</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div lang="en" class="active">
+          <h3>Friend Management</h3>
+          <p>Add, remove, block, and unblock friends with ease</p>
+        </div>
+        <div lang="es">
+          <h3>Gestión de Amigos</h3>
+          <p>Añade, elimina, bloquea y desbloquea amigos fácilmente</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div lang="en" class="active">
+          <h3>Gift System</h3>
+          <p>Send in-game items to friends directly through the interface</p>
+        </div>
+        <div lang="es">
+          <h3>Sistema de Regalos</h3>
+          <p>Envía objetos del juego a tus amigos directamente a través de la interfaz</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div lang="en" class="active">
+          <h3>Real-time Notifications</h3>
+          <p>Get notified when friends connect, disconnect, or send requests</p>
+        </div>
+        <div lang="es">
+          <h3>Notificaciones en Tiempo Real</h3>
+          <p>Recibe notificaciones cuando tus amigos se conectan, desconectan o envían solicitudes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="commands">
+    <h2>Commands / Comandos</h2>
+    <ul class="command-list">
+      <li><code>/friends</code> - Open the friends management menu / Abrir el menú de gestión de amigos</li>
+      <li><code>/helpfriends</code> - Display available commands and their usage / Mostrar comandos disponibles y su uso</li>
+      <li><code>/accept &lt;player&gt;</code> - Accept a friend request / Aceptar una solicitud de amistad</li>
+      <li><code>/reject &lt;player&gt;</code> - Reject a friend request / Rechazar una solicitud de amistad</li>
+    </ul>
+  </section>
+
+  <section id="installation">
+    <h2>Installation / Instalación</h2>
+    <ol class="installation-steps">
+      <li>Download the PanasMenu .jar file / Descarga el archivo .jar de PanasMenu</li>
+      <li>Place the file in your server's plugins folder / Coloca el archivo en la carpeta de plugins de tu servidor</li>
+      <li>Restart your server / Reinicia tu servidor</li>
+      <li>Configure the plugin through config.yml / Configura el plugin a través de config.yml</li>
+      <li>Verify the plugin is working with /friends command / Verifica que el plugin esté funcionando con el comando /friends</li>
+    </ol>
+  </section>
+
+  <section id="configuration">
+    <h2>Configuration / Configuración</h2>
+    <pre><code>menu:
+      # Configuración del menú de amigos
+      menu:
+        add_friend:
+          material: "DIAMOND"  # Material del ítem para "Agregar Amigo"
+          name: "Add Friend"     # Nombre del ítem
+          lore: "Click to add a friend"  # Lore del ítem
+        remove_friend:
+          material: "REDSTONE"   # Material del ítem para "Eliminar Amigo"
+          name: "Remove Friend"
+          lore: "Click to remove a friend"
+        block_friend:
+          material: "BARRIER"     # Material del ítem para "Bloquear Amigo"
+          name: "Block Friend"
+          lore: "Click to block a friend"
+        unblock_friend:
+          material: "GREEN_WOOL"  # Material del ítem para "Desbloquear Amigo"
+          name: "Unblock Friend"
+          lore: "Click to unblock a friend"
+        send_gift:
+          material: "PAPER"        # Material del ítem para "Enviar Regalo"
+          name: "Send Gift"
+          lore: "Click to send a gift"
+        friends_list:
+          material: "BOOK"        # Material del ítem para "Lista de Amigos"
+          name: "Friends List"
+          lore: "Click to view your friends"
+      
+      # Mensajes utilizados en el plugin
+      messages:
+        has_connected: "%player% has connected."
+        has_disconnected: "%player% has disconnected."
+        player_not_online: "The player is not online."
+        friend_not_found: "Friend %friend% not found."
+        friend_already_added: "You are already friends with %friend%."
+        friend_request_sent: "Friend request sent to %friend%."
+        friend_request_received: "You have received a friend request from %player%."
+        friend_request_accepted: "You have accepted the friend request from %friend%."
+        friend_request_not_found: "No friend request found from %friend%."
+        friend_request_rejected: "You have rejected the friend request from %friend%."
+        friend_removed: "You have removed %friend% from your friends."
+        friend_blocked: "You have blocked %friend%."
+        friend_unblocked: "You have unblocked %friend%."
+        friend_already_blocked: "You have already blocked %friend%."
+        gift_sent: "Gift sent to %friend%."
+        gift_received: "You have received a gift from %player%."</code></pre>
+  </section>
+
+  <section id="support">
+    <h2>Support & Contributing / Soporte y Contribuciones</h2>
+    <p>Need help or want to contribute? Join our Discord community or visit our GitHub repository! / ¿Necesitas ayuda o quieres contribuir? ¡Únete a nuestra comunidad de Discord o visita nuestro repositorio de GitHub!</p>
+  </section>
+  
+</div>
+
+<script>
+let currentLang = 'en';
+
+function toggleLanguage() {
+  const newLang = currentLang === 'en' ? 'es' : 'en';
+  document.querySelectorAll(`[lang="${currentLang}"]`).forEach(el => {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll(`[lang="${newLang}"]`).forEach(el => {
+    el.classList.add('active');
+  });
+  currentLang = newLang;
+}
+
+document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const section = document.querySelector(this.getAttribute('href'));
+    section.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Enhanced scroll behavior
+document.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Smooth reveal animations
+const revealElements = document.querySelectorAll('.feature-card, section');
+const revealOnScroll = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '-50px'
+});
+
+revealElements.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+  revealOnScroll.observe(el);
+});
+</script>
+
+</body></html>
