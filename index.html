@@ -1,4 +1,4 @@
-<html><head><base href="https://"><title>PanasMenu - Minecraft Plugin Wiki</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet"><style>
+<html><head><base href="https://"><title>PanasMenuFree - Minecraft Plugin Wiki</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet"><style>
 :root {
   --primary: #1a1f2c;
   --secondary: #2d3748;
@@ -309,6 +309,28 @@ h2 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-hover);
 }
+
+#image {
+  text-align: center;
+  padding: 2rem;
+}
+
+#image img {
+  display: block;
+  margin: 2rem auto;
+  transition: transform 0.3s ease;
+}
+
+#image img:hover {
+  transform: scale(1.02);
+}
+
+#image p {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.9;
+}
 </style>
 </head>
 <body>
@@ -333,16 +355,17 @@ h2 {
     <li><a href="#installation">Installation / Instalación</a></li>
     <li><a href="#configuration">Configuration / Configuración</a></li>
     <li><a href="#support">Support / Soporte</a></li>
+    <li><a href="#usage">How to Use / Cómo Usar</a></li>
   </ul>
 </nav>
 
 <div class="hero">
-  <h1>PanasMenu</h1>
+  <h1>PanasMenuFree</h1>
   <div lang="en" class="active">
-    <p class="hero-text">Transform your Minecraft server's social experience</p>
+    <p class="hero-text">Welcome to the Minecraft Friendship Revolution!</p>
   </div>
   <div lang="es">
-    <p class="hero-text">Transforma la experiencia social de tu servidor Minecraft</p>
+    <p class="hero-text">¡Bienvenido a la Revolución de la Amistad en Minecraft!</p>
   </div>
 </div>
 
@@ -351,97 +374,123 @@ h2 {
   <section id="overview">
     <h2>Overview / Descripción</h2>
     <div lang="en" class="active">
-      <p>PanasMenu is an innovative plugin designed for Minecraft servers that enables players to manage their friendships effortlessly through an intuitive interface. With features like friend requests, gift-giving, and real-time notifications, PanasMenu enhances the social experience of your Minecraft server.</p>
+      <p>Are you tired of playing alone on your Minecraft server? Want to manage your friendships in a fun and simple way? Look no further! PanasMenuFree is the plugin you need to transform your gaming experience. With this plugin, you can add friends, block unwanted players, and best of all, send gifts to your adventure companions!</p>
     </div>
     <div lang="es">
-      <p>PanasMenu es un plugin innovador diseñado para servidores de Minecraft que permite a los jugadores gestionar sus amistades de manera sencilla a través de una interfaz intuitiva. Con características como solicitudes de amistad, envío de regalos y notificaciones en tiempo real, PanasMenu mejora la experiencia social de tu servidor de Minecraft.</p>
+      <p>¿Estás cansado de jugar solo en tu servidor de Minecraft? ¿Quieres gestionar tus amistades de una manera divertida y sencilla? ¡No busques más! PanasMenuFree es el plugin que necesitas para transformar tu experiencia de juego. Con este plugin, podrás agregar amigos, bloquear a quienes no deseas tener cerca y, lo mejor de todo, ¡enviar regalos a tus compañeros de aventuras!</p>
     </div>
   </section>
 
   <section id="features">
-    <h2>Key Features / Características Principales</h2>
+    <h2>Key Features / Características Destacadas</h2>
     <div class="feature-grid">
       <div class="feature-card">
         <div lang="en" class="active">
-          <h3>Interactive Friends Menu</h3>
-          <p>User-friendly visual interface for managing friends without complex commands</p>
-        </div>
-        <div lang="es">
-          <h3>Menú de Amigos Interactivo</h3>
-          <p>Interfaz visual amigable para gestionar amigos sin comandos complejos</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div lang="en" class="active">
           <h3>Friend Management</h3>
-          <p>Add, remove, block, and unblock friends with ease</p>
+          <p>Add and remove friends with just a few clicks. Having friends close by has never been easier!</p>
         </div>
         <div lang="es">
           <h3>Gestión de Amigos</h3>
-          <p>Añade, elimina, bloquea y desbloquea amigos fácilmente</p>
+          <p>Agrega y elimina amigos con un par de clics. Nunca ha sido tan fácil tener a tus amigos cerca.</p>
         </div>
       </div>
       <div class="feature-card">
         <div lang="en" class="active">
-          <h3>Gift System</h3>
-          <p>Send in-game items to friends directly through the interface</p>
+          <h3>Player Blocking</h3>
+          <p>Is a player bothering you? Block them! No more unwanted interruptions.</p>
         </div>
         <div lang="es">
-          <h3>Sistema de Regalos</h3>
-          <p>Envía objetos del juego a tus amigos directamente a través de la interfaz</p>
+          <h3>Bloqueo de Jugadores</h3>
+          <p>¿Un jugador te está molestando? ¡Bloquealo! No más interrupciones no deseadas.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div lang="en" class="active">
+          <h3>Gift Giving</h3>
+          <p>Surprise your friends by sending items directly from your inventory. A gesture that will always be appreciated!</p>
+        </div>
+        <div lang="es">
+          <h3>Envío de Regalos</h3>
+          <p>Sorprende a tus amigos enviándoles ítems directamente desde tu inventario. ¡Un gesto que siempre será apreciado!</p>
         </div>
       </div>
       <div class="feature-card">
         <div lang="en" class="active">
           <h3>Real-time Notifications</h3>
-          <p>Get notified when friends connect, disconnect, or send requests</p>
+          <p>Receive alerts when your friends connect or disconnect. Stay up to date with their adventures!</p>
         </div>
         <div lang="es">
           <h3>Notificaciones en Tiempo Real</h3>
-          <p>Recibe notificaciones cuando tus amigos se conectan, desconectan o envían solicitudes</p>
+          <p>Recibe alertas cuando tus amigos se conectan o desconectan. ¡Siempre estarás al tanto de sus aventuras!</p>
         </div>
       </div>
     </div>
   </section>
 
   <section id="commands">
-    <h2>Commands / Comandos</h2>
+    <h2>Magic Commands / Comandos Mágicos</h2>
     <ul class="command-list">
-      <li><code>/friends</code> - Open the friends management menu / Abrir el menú de gestión de amigos</li>
-      <li><code>/helpfriends</code> - Display available commands and their usage / Mostrar comandos disponibles y su uso</li>
-      <li><code>/accept &lt;player&gt;</code> - Accept a friend request / Aceptar una solicitud de amistad</li>
-      <li><code>/reject &lt;player&gt;</code> - Reject a friend request / Rechazar una solicitud de amistad</li>
+      <li><code>/panas</code> - Open the main friends menu / Abre el menú principal de gestión de amigos</li>
+      <li><code>/helppanas</code> - Display help information / Muestra información de ayuda</li>
+      <li><code>/aceptar &lt;player&gt;</code> - Accept a friend request / Acepta una solicitud de amistad</li>
+      <li><code>/rechazar &lt;player&gt;</code> - Reject a friend request / Rechaza una solicitud de amistad</li>
+      <li><code>/panasreload</code> - Reload plugin configuration / Recarga la configuración del plugin</li>
     </ul>
   </section>
 
   <section id="installation">
     <h2>Installation / Instalación</h2>
     <ol class="installation-steps">
-      <li>Download the PanasMenu .jar file / Descarga el archivo .jar de PanasMenu</li>
+      <li>Download the PanasMenuFree .jar file / Descarga el archivo .jar de PanasMenuFree</li>
       <li>Place the file in your server's plugins folder / Coloca el archivo en la carpeta de plugins de tu servidor</li>
       <li>Restart your server / Reinicia tu servidor</li>
       <li>Configure the plugin through config.yml / Configura el plugin a través de config.yml</li>
-      <li>Verify the plugin is working with /friends command / Verifica que el plugin esté funcionando con el comando /friends</li>
+      <li>Verify the plugin is working with /panas command / Verifica que el plugin esté funcionando con el comando /panas</li>
     </ol>
   </section>
 
   <section id="configuration">
     <h2>Configuration / Configuración</h2>
-    <pre><code>menu:
-  add_friend:
-    material: "DIAMOND"
-    name: "Add Friend / Añadir Amigo"
-  remove_friend:
-    material: "REDSTONE"
-    name: "Remove Friend / Eliminar Amigo"
-messages:
-  friend_request_sent: "Friend request sent to %friend% / Solicitud de amistad enviada a %friend%"
-  friend_request_received: "New friend request from %player% / Nueva solicitud de amistad de %player%"</code></pre>
+    <img src="https://raw.githubusercontent.com/elantiguo/PanasMenu/refs/heads/main/images/panasmenu7.png" alt="Placeholder Image" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
   </section>
 
   <section id="support">
     <h2>Support & Contributing / Soporte y Contribuciones</h2>
     <p>Need help or want to contribute? Join our Discord community or visit our GitHub repository! / ¿Necesitas ayuda o quieres contribuir? ¡Únete a nuestra comunidad de Discord o visita nuestro repositorio de GitHub!</p>
+  </section>
+
+  <section id="usage">
+    <h2>How to Use / Cómo Usar</h2>
+    <div lang="en" class="active">
+      <ol class="installation-steps">
+        <li>Start the Adventure: Use /panas to open the main menu</li>
+        <li>Add Friends: Select "Add friend" and type the player's name</li>
+        <li>Remove Friends: Choose "Remove friend" and follow the instructions</li>
+        <li>Block & Unblock: Use blocking options to maintain your personal space</li>
+        <li>Send Gifts: Hold the item you want to send, select "Send Gift" and specify the recipient</li>
+      </ol>
+    </div>
+    <div lang="es">
+      <ol class="installation-steps">
+        <li>¡Comienza la Aventura!: Usa el comando /panas para abrir el menú principal</li>
+        <li>Agrega Amigos: Selecciona "Añadir amigo" y escribe el nombre del jugador</li>
+        <li>Elimina Amigos: Si necesitas eliminar un amigo, selecciona "Eliminar amigo"</li>
+        <li>Bloquea y Desbloquea: Usa las opciones de bloqueo para mantener tu espacio personal</li>
+        <li>Envía Regalos: Sostén el ítem, selecciona "Enviar Regalo" y especifica el destinatario</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="image">
+    <h2>Plugin Image / Imagen del Plugin</h2>
+    <img src="https://raw.githubusercontent.com/elantiguo/PanasMenu/refs/heads/main/images/panasmenu2.png" alt="Placeholder Image" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+    <img src="https://raw.githubusercontent.com/elantiguo/PanasMenu/refs/heads/main/images/panasmenu3.png" alt="Placeholder Image" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+    <img src="https://raw.githubusercontent.com/elantiguo/PanasMenu/refs/heads/main/images/panasmenu4.png" alt="Placeholder Image" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+    <img src="https://raw.githubusercontent.com/elantiguo/PanasMenu/refs/heads/main/images/panasmenu5.png" alt="Placeholder Image" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+    <p class="fade-in">
+      <span lang="en" class="active">Experience the welcoming interface of PanasMenuFree!</span>
+      <span lang="es">¡Experimenta la interfaz acogedora de PanasMenuFree!</span>
+    </p>
   </section>
   
 </div>
