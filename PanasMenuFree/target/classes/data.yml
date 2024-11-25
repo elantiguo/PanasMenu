@@ -1,0 +1,17 @@
+name: PanasMenu
+main: voi.elantiguo.PanasMenuFree
+version: 1.1
+author: ElAnti
+description: Plugin para gestionar amigos con opciones avanzadas.
+api-version: 1.13
+commands:
+  panas:
+    description: Abre el menú de gestión de amigos.
+  ayudapanas:
+    description: Muestra ayuda sobre los comandos de amigos.
+  aceptar:
+    description: Acepta una solicitud de amistad.
+  rechazar:
+    description: Rechaza una solicitud de amistad.
+  panasreload:
+    description: Recarga la configuración del plugin.

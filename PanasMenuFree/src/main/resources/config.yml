@@ -1,0 +1,20 @@
+# Configuración del plugin PanasMenu
+
+# Mensajes para el sistema de amigos
+messages:
+  player_join: "(Pana)%player% se ha conectado."
+  player_quit: "(Pana)%player% se ha desconectado."
+  menu_add_friend: "Añadir amigo"
+  menu_remove_friend: "Eliminar amigo"
+  menu_block_friend: "Bloquear amigo"
+  menu_unblock_friend: "Desbloquear amigo"
+  menu_send_gift: "Enviar regalo"
+  menu_friends_list: "Lista de amigos"
+  no_permission: "No tienes permiso para realizar esta acción."
+  player_not_online: "El jugador no está en línea."
+  already_friends: "Ya eres amigo de %friend%."
+  friend_request_received: "Has recibido una solicitud de amistad de %requester%."
+  friend_request_sent: "Has enviado una solicitud de amistad a %target%."
+  request_already_sent: "Ya has enviado una solicitud de amistad a %friend%."
+  friend_added: "¡Has añadido a %friend% como amigo!"
+  reload_success: "La configuración ha sido recargada."
